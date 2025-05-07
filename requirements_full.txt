@@ -1,0 +1,14 @@
+
+torch
+torchvision
+torchaudio
+transformers
+datasets
+accelerate
+sentencepiece
+protobuf
+gradio
+mastodon.py
+python-dotenv
+huggingface_hub
+

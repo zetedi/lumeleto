@@ -1,0 +1,6 @@
+transformers
+torch
+huggingface_hub
+mastodon.py
+python-dotenv
+requests
