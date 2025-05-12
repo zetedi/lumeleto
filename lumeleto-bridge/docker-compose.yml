@@ -1,0 +1,11 @@
+version: "3.8"
+
+services:
+  lumeleto-mastodon:
+    build: .
+    env_file:
+      - .env
+    restart: unless-stopped
+    volumes:
+      - .:/app
+    command: python -m dotenv run -- python lumeleto_mastodon_bridge.py
