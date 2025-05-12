@@ -1,13 +1,22 @@
 from fastapi import FastAPI
 from database import engine, Base
 from models import Lifeseed
+from contextlib import asynccontextmanager
+import logging
 
-app = FastAPI()
+logging.basicConfig(level=logging.INFO)
 
-@app.on_event("startup")
-async def startup_event():
-    async with engine.begin() as conn:
-        await conn.run_sync(Base.metadata.create_all)
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    try:
+        logging.info("🚀 Starting up Lumeleto node...")
+        # Create DB tables
+        Base.metadata.create_all(bind=engine)
+        yield
+    finally:
+        logging.info("🌙 Shutting down Lumeleto node...")
+
+app = FastAPI(lifespan=lifespan)
 
 @app.get("/")
 def read_root():
