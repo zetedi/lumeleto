@@ -1,0 +1,17 @@
+// .devcontainer/devcontainer.json
+{
+    "name": "lumeleto-dev",
+    "image": "mcr.microsoft.com/devcontainers/python:3.10",
+    "features": {
+      "ghcr.io/devcontainers/features/docker-in-docker:2": {}
+    },
+    "postCreateCommand": "pip install -r requirements_full.txt",
+    "customizations": {
+      "vscode": {
+        "settings": {
+          "python.defaultInterpreterPath": "/usr/local/bin/python"
+        },
+        "extensions": ["ms-python.python", "github.vscode-pull-request-github"]
+      }
+    }
+  }
