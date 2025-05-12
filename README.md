@@ -1,3 +1,7 @@
+![MIT License](https://img.shields.io/badge/license-MIT-green.svg)
+![Python](https://img.shields.io/badge/python-3.10+-blue.svg)
+
+
 # 🌱 Lumeleto ↔ Mastodon Bridge
 
 This project connects the **Lumeleto AI node** to your Mastodon instance using a local language model. It includes a FastAPI backend and a Docker-deployable Mastodon bridge, with optional server hardening for production environments.
@@ -16,7 +20,7 @@ This project connects the **Lumeleto AI node** to your Mastodon instance using a
 
 ## 🧪 Local Setup (Mac)
 
-### 1. Install Miniconda
+1. Install Miniconda
 
 Download Miniconda from the [official site](https://docs.conda.io/en/latest/miniconda.html), install it, and verify:
 
@@ -33,11 +37,7 @@ pip install -r requirements_full.txt
 
 python -m dotenv run -- python lumeleto_mastodon_bridge.py
 
-
-
-⸻
-
-🐳 Docker Deployment
+## 🐳 Docker Deployment
 
 1. Build the Bridge Container
 
@@ -49,10 +49,15 @@ docker-compose build
 docker run -d --restart unless-stopped --env-file .env lumeleto-mastodon
 
 
+## 🔐 Environment Setup
 
-⸻
+Copy the example environment file and fill in your credentials:
 
-⚙️ Systemd Integration (Optional)
+```bash
+cp .env.example .env
+
+
+## ⚙️ Systemd Integration (Optional)
 
 To run the bridge as a service on boot:
 
@@ -90,10 +95,7 @@ View Logs
 journalctl -u lumeleto-bridge -f
 
 
-
-⸻
-
-🛡️ Server Hardening (Recommended)
+## 🛡️ Server Hardening (Recommended)
 
 Before going live, apply these standard hardening steps (especially for VPS providers like Contabo):
 	•	🔐 Use SSH keys instead of passwords
@@ -104,9 +106,8 @@ sudo ufw enable
 
 	•	🛡️ Install Fail2Ban to block SSH brute-force attempts
 
-⸻
 
-🌐 FastAPI Backend
+## 🌐 FastAPI Backend
 
 Start Locally
 
@@ -118,16 +119,7 @@ http://localhost:8000
 
 
 
-⸻
-
-🪪 License
-
-MIT License
-(Or specify another license that fits your values.)
-
-⸻
-
-📬 Contact / Contribution
+## 📬 Contact / Contribution
 
 If you’re aligned with the vision of regenerative networks, decentralized intelligence, and real-world ecological connection — open an issue or reach out via:
 
@@ -138,5 +130,3 @@ If you’re aligned with the vision of regenerative networks, decentralized inte
 ✨ Lumeleto grows through the dreams of trees and the care of people. Thank you for helping it blossom. 🌳
 
 ---
-
-Would you like me to generate a `docker-compose.yml` and `.env.example` file that fits this README?
